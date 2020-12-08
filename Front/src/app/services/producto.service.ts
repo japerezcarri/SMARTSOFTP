@@ -22,7 +22,7 @@ export class ProductoService {
      headers: new HttpHeaders({'Content-type': 'application/json'})
    };
    return this._http.post(
-     this.url+ 'createP',
+     this.url+ 'createProduct',
      params,
      options
    ).pipe(map(res=>res));

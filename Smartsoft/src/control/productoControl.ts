@@ -5,8 +5,8 @@ import { Producto } from "../modelo/Producto";
 export const obtenerProductos = async (
   req: Request, res: Response
 ): Promise<Response> => {
-  const product = await getRepository(Producto).find();
-  return res.json(product);
+  const productos = await getRepository(Producto).find();
+  return res.json(productos);
 };
 
 export const obtenerProducto= async (
@@ -21,7 +21,9 @@ export const crearProducto = async (
 ): Promise<Response> => {
   const nProducto = getRepository(Producto).create(req.body);
   const prod = await getRepository(Producto).save(nProducto);
+  
   return res.json(prod);
+  console.log(prod)
 };
 
 export const actualizarProducto = async (

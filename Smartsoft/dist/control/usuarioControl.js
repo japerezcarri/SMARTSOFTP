@@ -64,17 +64,25 @@ var obtenerUsuario = function (req, res) { return __awaiter(void 0, void 0, void
 }); };
 exports.obtenerUsuario = obtenerUsuario;
 var login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var usuario;
+    var parametros, cont, usuario;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, typeorm_1.getRepository(Usuario_1.Usuario).findOne(req.params.correo)];
+            case 0:
+                parametros = req.body;
+                cont = parametros.contrasena;
+                return [4 /*yield*/, typeorm_1.getRepository(Usuario_1.Usuario).findOne(req.params.correo)];
             case 1:
                 usuario = _a.sent();
-                if ((usuario === null || usuario === void 0 ? void 0 : usuario.contrasena) == req.params.contrasena) {
-                    return [2 /*return*/, res.json({ msg: 'Contraseña incorrecta' })];
+                if (!usuario) {
+                    return [2 /*return*/, res.json({ msg: 'El usuario no existe' })];
                 }
                 else {
-                    return [2 /*return*/, res.json(usuario)];
+                    if (usuario.contrasena != cont) {
+                        return [2 /*return*/, res.json({ msg: 'Contraseña incorrecta' })];
+                    }
+                    else {
+                        return [2 /*return*/, res.json(usuario)];
+                    }
                 }
                 return [2 /*return*/];
         }

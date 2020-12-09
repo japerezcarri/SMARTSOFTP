@@ -1,9 +1,9 @@
 export class Usuario{
     constructor(
-        public _id: Number,
+        public id: Number,
         public nombre: String,
-        public categoria:String,
-        public precio: Number,
-        public inventario: Number
+        public apellido:String,
+        public correo: String,
+        public contrasena: String
     ){}
 }

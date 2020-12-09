@@ -1,27 +1,29 @@
-<p>side-bar works!</p>
 
-<ul class="navbar-nav mr-auto">
-    <li class="nav-item active">
-        <a class="nav-link" href="#"> <span class="material-icons mx-2">
-                dashboard
-            </span><span class="sr-only"></span>Dashboard</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-</ul>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" style="top:60px;" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    
+    <mat-nav-list>
+      <a mat-list-item href="/producto" style="color: #325290;"><mat-icon aria-hidden="false" class="mx-2" >dashboard</mat-icon>Dashboard</a>
+      <a mat-list-item href="/producto" style="color: #325290;"><mat-icon aria-hidden="false" class="mx-2" >admin_panel_settings</mat-icon>Administrar Productos</a>
+      <a mat-list-item href="#"style="color: #325290;"><mat-icon aria-hidden="false" class="mx-2" >loyalty</mat-icon>Promociones</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    
+      <button style="margin-top: 10px; position:absolute;"
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">more_horiz</mat-icon>
+      </button>
+      
+    
+    <!-- Add Content Here -->
+<router-oulet></router-oulet>  
+</mat-sidenav-content>
+</mat-sidenav-container>

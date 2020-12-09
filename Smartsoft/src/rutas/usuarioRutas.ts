@@ -1,5 +1,5 @@
 import { Router } from "express";
-const router = Router();
+const router2 = Router();
 
 import {
   obtenerUsuario,
@@ -10,12 +10,12 @@ import {
   login
 } from "../control/usuarioControl";
 
-router.get("/usuarios", obtenerUsuarios);
-router.get("/usuario/:id", obtenerUsuario);
-router.post("/registro", registrarUsuario);
-router.put("/updateUser/:id", actualizarUsuario);
-router.delete("/deleteUser/:id", eliminarUsuario); 
-router.get("/login/:correo",login);
+router2.get("/usuarios", obtenerUsuarios);
+router2.get("/usuario/:id", obtenerUsuario);
+router2.post("/registro", registrarUsuario);
+router2.put("/updateUser/:id", actualizarUsuario);
+router2.delete("/deleteUser/:id", eliminarUsuario); 
+router2.post("/login",login);
 
 
-export default router;
+export default router2;

@@ -18,3 +18,19 @@ border-color: cornsilk;
 th.mat-sort-header-sorted {
     color: black;
   }
+
+  @media only screen and (min-width:909px){
+    .subc{
+      margin: 0px;
+    }
+  }
+.subc{
+    min-height: 95vh;
+    height: auto;
+    background: rgb(0,32,73);
+    background: linear-gradient(90deg, rgba(0, 32, 73, 0.644) 0%, rgba(0, 16, 48, 0.658) 61%, rgba(0, 3, 23, 0.637) 100%);
+    width: 85VW;
+}
+.contenedorAP{
+    width: 100vW;
+}

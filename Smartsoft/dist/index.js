@@ -9,6 +9,7 @@ var morgan_1 = __importDefault(require("morgan"));
 var cors_1 = __importDefault(require("cors"));
 var typeorm_1 = require("typeorm");
 var productosRutas_1 = __importDefault(require("./rutas/productosRutas"));
+var usuarioRutas_1 = __importDefault(require("./rutas/usuarioRutas"));
 //servidor
 var app = express_1.default();
 var port = 3000;
@@ -19,5 +20,6 @@ app.use(cors_1.default());
 app.use(morgan_1.default('dev'));
 //routes
 app.use(productosRutas_1.default);
+app.use(usuarioRutas_1.default);
 app.listen(port);
 console.log('Puerto: ' + port);

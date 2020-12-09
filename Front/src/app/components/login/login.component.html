@@ -1,1 +1,47 @@
-<p>login works!</p>
+
+
+<div class="pt-5 backg">
+    <div class="d-flex justify-content-center  h-100" style="margin-top:15vh;" >
+        <div class="card">
+            <div class="card-header">
+                <h3 class="pt-4">Iniciar Sesión</h3>
+                
+  
+            </div>
+            <div class="card-body">
+                <form #formularioLogin="ngForm" (ngSubmit)="loginUsuario()">
+                    <div class="input-group form-group my-3">
+                        <div class="input-group-prepend">
+                            <mat-icon aria-hidden="false" class="icono"style="font-size:1.3em" > account_circle</mat-icon>
+                        </div>
+                        <input id="email" type="email" name="email" #email="ngModel" [(ngModel)]="login.correo" class="form-control" placeholder="Escribe tu correo">
+
+                    </div>
+                    <div class="input-group form-group my-2">
+                        <div class="input-group-prepend my-2">
+                            <mat-icon aria-hidden="false" class="icono"style="font-size:1.3em" > vpn_key</mat-icon>
+                        </div>
+                        <input id="pass" type="password" name="pass" #pass="ngModel" [(ngModel)]="login.contrasena" class="form-control" placeholder="Escribe tu contraseña">
+                    </div>
+
+                    <div class="form-group text-align-center d-flex justify-content-center">
+                        <input type="submit" value="Login" class="btn  btn-outline-secondary my-4  ">
+                    </div>
+                </form>
+            </div>
+
+            <div class="card-footer">
+                <div class="d-flex justify-content-center links">
+                    ¿No tienes una cuenta?
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="/registro">Registrate!</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

@@ -9,23 +9,29 @@ export const obtenerUsuarios = async (
   return res.json(usuario);
 };
 
-export const obtenerUsuario= async (
+export const obtenerUsuario = async (
   req: Request, res: Response
 ): Promise<Response> => {
   const usuario = await getRepository(Usuario).findOne(req.params.id);
   return res.json(usuario);
 };
 
-export const login= async(
-    req: Request, res: Response
-):Promise<Response> => {
-    
+export const login = async (
+  req: Request, res: Response
+): Promise<Response> => {
+  var parametros = req.body;
+  var cont = parametros.contrasena;
   const usuario = await getRepository(Usuario).findOne(req.params.correo);
-  if(usuario?.contrasena== req.params.contrasena){
-      return res.json({msg: 'Contraseña incorrecta'});
-  }else{
-    return res.json(usuario);
-  } 
+  if (!usuario) {
+    return res.json({ msg: 'El usuario no existe' });
+  } else {
+    if (usuario.contrasena != cont) {
+      return res.json({ msg: 'Contraseña incorrecta' });
+    } else {
+      return res.json(usuario);
+    }
+  }
+
 };
 
 export const registrarUsuario = async (
@@ -33,9 +39,9 @@ export const registrarUsuario = async (
 ): Promise<Response> => {
   const nUsuario = getRepository(Usuario).create(req.body);
   const usu = await getRepository(Usuario).save(nUsuario);
-  
+
   return res.json(usu);
-  
+
 };
 
 export const actualizarUsuario = async (
@@ -46,19 +52,18 @@ export const actualizarUsuario = async (
     getRepository(Usuario).merge(usuarioA, req.body);
     const resultado = await getRepository(Usuario).save(usuarioA);
     return res.json(resultado);
-  }else{
+  } else {
 
-  return res.json({msg: 'Not user found'});
+    return res.json({ msg: 'Not user found' });
   }
 };
 
 export const eliminarUsuario = async (
   req: Request, res: Response
-  ): Promise<Response> => {
+): Promise<Response> => {
   const resultado = await getRepository(Usuario).delete(req.params.id);
   return res.json(resultado);
 };
 
 
 
- 

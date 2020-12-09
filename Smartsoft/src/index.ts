@@ -5,6 +5,7 @@ import cors from 'cors'
 import {createConnection} from 'typeorm'
 
 import productosRutas from './rutas/productosRutas'
+import usuarioRutas from    './rutas/usuarioRutas'
 
 //servidor
 const app=express();
@@ -21,6 +22,7 @@ app.use(morgan('dev'));
 
 //routes
 app.use(productosRutas);
+app.use(usuarioRutas);
 
 app.listen(port);
 console.log('Puerto: '+ port); 

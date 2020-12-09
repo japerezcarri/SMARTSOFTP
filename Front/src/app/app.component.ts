@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-//import {MatDialog} from '@angular/material/dialog';
-//import { AceptarComponent } from './dialog/aceptar/aceptar.component';
+
 
 @Component({
   selector: 'app-root',

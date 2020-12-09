@@ -40,13 +40,13 @@ exports.eliminarProducto = exports.actualizarProducto = exports.crearProducto = 
 var typeorm_1 = require("typeorm");
 var Producto_1 = require("../modelo/Producto");
 var obtenerProductos = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var product;
+    var productos;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, typeorm_1.getRepository(Producto_1.Producto).find()];
             case 1:
-                product = _a.sent();
-                return [2 /*return*/, res.json(product)];
+                productos = _a.sent();
+                return [2 /*return*/, res.json(productos)];
         }
     });
 }); };
@@ -90,7 +90,7 @@ var actualizarProducto = function (req, res) { return __awaiter(void 0, void 0, 
             case 2:
                 resultado = _a.sent();
                 return [2 /*return*/, res.json(resultado)];
-            case 3: return [2 /*return*/, res.json({ msg: 'Not user found' })];
+            case 3: return [2 /*return*/, res.json({ msg: 'No se encuentra producto' })];
         }
     });
 }); };

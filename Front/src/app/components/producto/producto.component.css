@@ -1,3 +1,20 @@
-table {
+.etabla {
     width: 100%;
+    background: rgb(0,16,48);
+background: linear-gradient(139deg, rgba(0,16,48,0.1847514005602241) 6%, rgba(86,109,140,0.1802696078431373) 100%);
+background: rgb(255,255,255);
+background: linear-gradient(139deg, rgba(0,16,48,0.01847514005602241) 6%, rgba(255,255,255,0.1802696078431373) 100%);
+color: cornsilk;
+border-color: cornsilk;
+
  }
+th,td, .ngx-pagination{
+ color: cornsilk;
+border-color: cornsilk;
+} 
+.col-form-label, h3{
+    color:cornsilk;
+}
+th.mat-sort-header-sorted {
+    color: black;
+  }

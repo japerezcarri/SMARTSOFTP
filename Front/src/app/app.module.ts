@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import {MaterialModule}from './material/material.module'
 //componentes
 import { ProductoComponent } from './components/producto/producto.component';
-import { SlideBarComponent } from './components/slide-bar/slide-bar.component';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 
@@ -22,14 +22,16 @@ import { from } from 'rxjs';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductoComponent,
-    SlideBarComponent,
+    SideBarComponent,
     LoginComponent,
     RegistroComponent,
     NavBarComponent,
+   
 
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
 import {Router} from '@angular/router';
 import {Producto} from 'src/app/model/producto';
 import {Usuario} from 'src/app/model/usuario';
@@ -27,12 +28,12 @@ export class ProductoComponent implements OnInit {
     
   }
   //columnas: string[] = ['codigo', 'descripcion', 'precio'];
-  columnas: string[]=['id','nombre','categoria','precio','inventario'];
+  columnas: string[]=['id','nombre','categoria','precio','inventario','eliminar','modificar'];
 
   dataSource = null;
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-
+  @ViewChild(MatSort) sort: MatSort;
  
   ngOnInit() {
        this.ListarProductos();
@@ -40,10 +41,11 @@ export class ProductoComponent implements OnInit {
   } 
  
   ngOnDoCheck(){
-    
+    this.ListarProductos();
   }
   ngAfterViewInit()
   {      
+    this.dataSource.sort = this.sort;
     /* if(localStorage.getItem('sesion'))
     {
       this.identidad = JSON.parse(localStorage.getItem('sesion'));
@@ -176,6 +178,7 @@ export class ProductoComponent implements OnInit {
         this.productoActual = response;
       }
       );
+      this.ListarProductos();
   }
   //eliminar producto
   delProducto(id){

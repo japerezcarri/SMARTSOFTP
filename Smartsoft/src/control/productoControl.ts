@@ -23,7 +23,7 @@ export const crearProducto = async (
   const prod = await getRepository(Producto).save(nProducto);
   
   return res.json(prod);
-  console.log(prod)
+  
 };
 
 export const actualizarProducto = async (
@@ -34,9 +34,9 @@ export const actualizarProducto = async (
     getRepository(Producto).merge(prodA, req.body);
     const resultado = await getRepository(Producto).save(prodA);
     return res.json(resultado);
+  }else{
+  return res.json({msg: 'No se encuentra producto'});
   }
-
-  return res.json({msg: 'Not user found'});
 };
 
 export const eliminarProducto = async (

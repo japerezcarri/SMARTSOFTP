@@ -1,25 +1,13 @@
-<router-outlet></router-outlet>
-<app-login></app-login>
-<app-producto></app-producto>
-<div 
-  gdAreas="header header | side content | footer footer"
-  gdGap="16px"
-  gdRows="auto auto auto">
-  <div gdArea="header">
-    Header
-   </div>
-  <div gdArea="side">
-    Side
-   </div>
-  <div gdArea="content">
-    Content aaaaaa
-    
-    
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+<section id="page">
+  <header><app-nav-bar></app-nav-bar></header>
+  <nav><app-side-bar></app-side-bar></nav>
+  <div class="auxiliar">
+  <main ><!-- <router-outlet></router-outlet> -->
+    <app-producto></app-producto></main>
   </div>
-  <router-outlet></router-outlet>
-  <app-producto></app-producto>
-  <div gdArea="footer">
-    Footer
-  </div>
-</div><!-- 
-<button mat-raised-button (click)="openDialog()">Open Dialog</button> -->
+</section>
+
+
+

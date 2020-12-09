@@ -1,0 +1,26 @@
+
+  
+  .naveg{
+    position: fixed;
+    /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+    z-index: 2;
+    background: rgb(0,32,73);
+    background: linear-gradient(90deg, rgba(0,32,73,1) 0%, rgba(0,16,48,1) 61%, rgba(0,3,23,1) 100%);
+  }
+  
+.logo{
+  height: 37px;
+    width: auto;
+    margin-right: 16px;
+    background: rgb(0,32,73);
+}
+.icono{
+  
+  color:#325290;
+  margin: 0.5em;
+}
+  h1.example-app-name {
+    margin-left: 8px;
+  }
+  
+  

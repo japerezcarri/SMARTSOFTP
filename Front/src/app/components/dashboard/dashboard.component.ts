@@ -5,6 +5,8 @@ import { Label,Color } from 'ng2-charts';
 import {AppModule} from 'src/app/app.module';
 
 import { ProductoService } from '../../services/producto.service';
+import { Usuario } from 'src/app/model/usuario';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,15 +16,28 @@ export class DashboardComponent implements OnInit {
   public listaProductos: any;
   public categorias: string[]=[];
   public poCategorias:number[]= [];
+  public identidad: Usuario;
 
 
-  constructor(private productoService: ProductoService) { 
+  constructor(private productoService: ProductoService,private _router:Router) { 
     this.ListarProductos();
   }
   
   ngOnInit() {
     this.ListarProductos();
 
+  }
+  ngAfterViewInit()
+  {      
+    
+     if(localStorage.getItem('sesion'))
+    {
+      this.identidad = JSON.parse(localStorage.getItem('sesion'));
+      console.log(this.identidad.id);
+
+    }else{
+      this._router.navigate(['']);
+    } 
   }
 
   //funcion de listar productos

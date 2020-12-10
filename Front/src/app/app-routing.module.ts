@@ -10,9 +10,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 const routes: Routes = [
   {path:'',component: LoginComponent},
   {path:'registro',component:RegistroComponent},
-  {path:'home',component:ProductoComponent},
-  {path: 'dashboard',component:DashboardComponent}
-
+  {path:'producto',component:ProductoComponent},
+  {path: 'dashboard',component:DashboardComponent},
+  
 
 ];
 

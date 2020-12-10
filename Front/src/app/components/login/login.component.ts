@@ -14,7 +14,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 export class LoginComponent implements OnInit {
 
  
-   @ViewChild('logincont') Login;
+  
   @ViewChild('container') Container; 
 
   // Declaración variable de usuario
@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
    public sesion = JSON.parse(localStorage.getItem('sesion'));
 
   ngOnInit(): void {
+    
   }
   //  Metodo iniciar sesio o Login
 
@@ -66,11 +67,8 @@ export class LoginComponent implements OnInit {
           this.usuarioService.sesion = true;
           this.usuarioService.nombreUs = this.identidad.nombre;
 
-         
-
-          // Redirección al perfil
-           alert(this.usuarioService.sesion);
-          this._router.navigate(['/home']);
+        
+          this._router.navigate(['/dashboard']);
         } else{
 
           alert("Usuario no identificado")

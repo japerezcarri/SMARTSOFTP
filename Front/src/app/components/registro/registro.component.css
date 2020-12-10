@@ -4,3 +4,9 @@
 h1{
     color: white;
 }
+.principal{
+    height: 100vh;
+    width: 100vw;
+    background: rgb(0,32,73);
+    background: linear-gradient(90deg, rgba(0, 32, 73, 0.644) 0%, rgba(0, 16, 48, 0.658) 61%, rgba(0, 3, 23, 0.637) 100%);
+}

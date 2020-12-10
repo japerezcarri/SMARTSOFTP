@@ -46,14 +46,14 @@ export class ProductoComponent implements OnInit {
   ngAfterViewInit()
   {      
     
-     if(localStorage.getItem('sesion'))
+    /*  if(localStorage.getItem('sesion'))
     {
       this.identidad = JSON.parse(localStorage.getItem('sesion'));
       console.log(this.identidad.id);
 
     }else{
       this._router.navigate(['']);
-    } 
+    }  */
   }
 
   ngDoCheck()

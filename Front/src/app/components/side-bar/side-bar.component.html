@@ -6,7 +6,7 @@
       [opened]="(isHandset$ | async) === false">
     
     <mat-nav-list>
-      <a mat-list-item href="/producto" style="color: #325290;"><mat-icon aria-hidden="false" class="mx-2" >dashboard</mat-icon>Dashboard</a>
+      <a mat-list-item href="/dashboard" style="color: #325290;"><mat-icon aria-hidden="false" class="mx-2" >dashboard</mat-icon>Dashboard</a>
       <a mat-list-item href="/producto" style="color: #325290;"><mat-icon aria-hidden="false" class="mx-2" >admin_panel_settings</mat-icon>Administrar Productos</a>
       <a mat-list-item href="#"style="color: #325290;"><mat-icon aria-hidden="false" class="mx-2" >loyalty</mat-icon>Promociones</a>
     </mat-nav-list>
@@ -22,8 +22,8 @@
         <mat-icon aria-label="Side nav toggle icon">more_horiz</mat-icon>
       </button>
       
-    
+      <router-outlet></router-outlet> 
     <!-- Add Content Here -->
-<router-oulet></router-oulet>  
+
 </mat-sidenav-content>
 </mat-sidenav-container>

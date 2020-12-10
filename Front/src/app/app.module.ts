@@ -27,8 +27,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -38,11 +39,13 @@ import { MatListModule } from '@angular/material/list';
     LoginComponent,
     RegistroComponent,
     NavBarComponent,
+    DashboardComponent,
   
 
   ],
   imports: [
     BrowserModule,
+    
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
@@ -52,7 +55,8 @@ import { MatListModule } from '@angular/material/list';
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ChartsModule
     
    
   ],

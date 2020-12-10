@@ -29,8 +29,12 @@ th.mat-sort-header-sorted {
     height: auto;
     background: rgb(0,32,73);
     background: linear-gradient(90deg, rgba(0, 32, 73, 0.644) 0%, rgba(0, 16, 48, 0.658) 61%, rgba(0, 3, 23, 0.637) 100%);
-    width: 85VW;
+    width: 100VW;
 }
 .contenedorAP{
     width: 100vW;
+}
+#search{
+  width: 90vw;
+  max-width: 500px;
 }

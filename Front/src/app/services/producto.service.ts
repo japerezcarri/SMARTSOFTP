@@ -51,21 +51,7 @@ export class ProductoService {
       options
     ).pipe(map(res => res));
   }
- /*  //servicio cargar imagen del producto
-  cargarImagenProducto(file: File, id) {
-    let formData = new FormData();
-    formData.append('imagenp', file);
-    return this._http.put(
-      this.url +'imgProduct/' + id,
-      formData
-    ).pipe(map(res => res));
-  } */
- /*  obtenerImagenProduct(file)
-  {
-    return this._http.get(this.url+'obtenerImgProduct/'+file).pipe(map(res => res));
-  } */
 
-   //servicio traer todas las canciones orden asc
   listarProductos()
   {
     return this._http.get(
@@ -79,14 +65,14 @@ export class ProductoService {
       ).pipe(map(res=>res));
   } 
 
-/*   filtrarProducto(busqueda)
+   filtrarProducto(busqueda)
   {
     let params = JSON.stringify(busqueda);
     let options = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-    return this._http.post(this.url+'searchProduct',params,options).pipe(map(res=>res));
-  } */
+    return this._http.post(this.url+'search',params,options).pipe(map(res=>res));
+  } 
  
 
 }

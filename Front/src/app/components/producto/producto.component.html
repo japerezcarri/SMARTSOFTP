@@ -1,166 +1,145 @@
-
-
-  <div class="contenedorAP d-flex align-items-center">
+<div class="contenedorAP d-flex align-items-center">
 
   <div class="subc row">
-    
-      <div class="col-lg-5 col-12 info py-3 px-5 my-3">
-        <h3 class="text-center m-1">Administrador de Productos</h3>
-        <div class="tab-content" id="myTabContent">
-          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-            <form class="my-4 mr-4 px-4" #ActualizarPelicula="ngForm" (ngSubmit)="ProcesarFormulario()">
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label " for="id">ID</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control form-control-sm " placeholder="id" id="id" name="id"
-                    #id="ngModel" [(ngModel)]="productoActual.id">
-                </div>
+
+    <div class="col-lg-5 col-12 info py-3  my-3">
+      <h3 class="text-center m-1">Administrador de Productos</h3>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <form class="my-4 mr-4 px-4" #ActualizarPelicula="ngForm" (ngSubmit)="ProcesarFormulario()">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label " for="id">ID</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control form-control-sm " placeholder="id" id="id" name="id"
+                  #id="ngModel" [(ngModel)]="productoActual.id">
               </div>
-              <!-- <input type="hidden" value="{{productoActual._id}}" name="_id" #_id="ngModel"
-                [(ngModel)]="productoActual._id"> -->
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label " for="name">Nombre</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control form-control-sm " placeholder="Nombre" id="name" name="name"
-                    #nombre="ngModel" [(ngModel)]="productoActual.nombre">
-                </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label " for="name">Nombre</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control form-control-sm " placeholder="Nombre" id="name" name="name"
+                  #nombre="ngModel" [(ngModel)]="productoActual.nombre">
               </div>
+            </div>
 
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label " for="categoria">Género</label>
-                <div class="col-sm-10">
-                  <input type="text" class=" form-control form-control-sm " placeholder="Categoría" id="categoria"
-                    name="categoria" #categoria="ngModel" [(ngModel)]="productoActual.categoria">
-                </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label " for="categoria">Categoría</label>
+              <div class="col-sm-9">
+                <input type="text" class=" form-control form-control-sm " placeholder="Categoría" id="categoria"
+                  name="categoria" #categoria="ngModel" [(ngModel)]="productoActual.categoria">
               </div>
+            </div>
 
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label " for="director">Director</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control form-control-sm" placeholder="Director" id="director"
-                    name="director" #precio="ngModel" [(ngModel)]="productoActual.precio">
-                </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label " for="precio">Precio $</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control form-control-sm" placeholder="Precio" id="precio"
+                  name="director" #precio="ngModel" [(ngModel)]="productoActual.precio">
               </div>
+            </div>
 
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="anio">Año</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control form-control-sm" placeholder="Año de estreno" id="anio"
-                    name="anio" #inventario="ngModel" [(ngModel)]="productoActual.inventario">
-                </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label" for="inventario">Inventario</label>
+              <div class="col-sm-9">
+                <input type="number" class="form-control form-control-sm" placeholder="Inventario" id="invetario"
+                  name="anio" #inventario="ngModel" [(ngModel)]="productoActual.inventario">
               </div>
+            </div>
 
 
-              
 
-              <!-- <div class="row my-2">
+
+            <!-- <div class="row my-2">
                               <label class="col-sm-3 col-form-label " for="subImag">Subir Imágen</label>
                               <input type="file" id="subImag" multiple (change)="subirArchivoImg($event)">
                           </div> -->
 
 
-              <div class="d-flex justify-content-around m-2">
-                <button class="btn btn-sm btn-secondary m-2" type="submit">Guardar</button>
-                <!--                               <button class="btn btn-sm btn-secondary m-2" type="reset" (click)="deleteId()">Nuevo documento</button>
- -->
-              </div>
-            </form>
-          </div>
-         <!--  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-            <img class="img-fluid" alt="Responsive image" #imgPeli src="">
-            <video class="d-flex justify-content-center" #vidPeli controls>
+            <div class="d-flex justify-content-center m-2">
+              <button class="btn btn-sm btn-secondary m-2" type="submit">Guardar</button>
+              <button class="btn btn-sm btn-secondary m-2" type="reset" (click)="deleteId()">Nuevo producto</button>
 
-            </video>
+            </div>
+          </form>
+        </div>
 
-          </div> -->
+      </div>
+
+
+
+    </div>
+
+
+    <!-- SEGUNDA COLUMNA -->
+
+    <div class="col-lg-7 col-12 px-4 my-3 ">
+      <h3 class=" mt-4 mb-3 text-center " style="max-width: 500px;">Lista de Productos Registrados</h3>
+      
+      <div class="input-group md-form form-sm form-1 pe-0 ps-3 mb-2">
+         
+        <div class="row ps-3 pe-3">
+          <input id="search" type="search" (keyup)=" buscarProducto($event.target.value)" class="form-control my-0 py-1"
+      placeholder="Buscar" aria-label="Search">
         </div>
 
 
 
+        <div class="mat-elevation-z2">
+          <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2 etabla"
+            style="color: antiquewhite;" #tabla1>
+
+            <ng-container matColumnDef="id">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+              <td mat-cell *matCellDef="let producto"> {{producto.id}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+              <td mat-cell *matCellDef="let producto"> {{producto.nombre}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="categoria">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoría </th>
+              <td mat-cell *matCellDef="let producto"> {{producto.categoria}} </td>
+            </ng-container>
+            <ng-container matColumnDef="precio">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
+              <td mat-cell *matCellDef="let producto"> {{producto.precio}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="inventario">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Inventario </th>
+              <td mat-cell *matCellDef="let producto"> {{producto.precio}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="modificar">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Actualizar </th>
+
+              <td mat-cell *matCellDef="let producto"> <button class="btn btn-sm btn-secondary"
+                  (click)="mostrarProducto(producto.id)"> <i class="material-icons">delete_forever
+                  </i></button> </td>
+            </ng-container>
+
+            <ng-container matColumnDef="eliminar">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Eliminar </th>
+
+              <td mat-cell *matCellDef="let producto"> <button class="btn btn-sm btn-secondary"
+                  (click)="delProducto(producto.id)"> <i class="material-icons">update
+                  </i></button> </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
+          </table>
+          <mat-paginator class="etabla" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+        </div>
       </div>
 
-
-      <!-- SEGUNDA COLUMNA -->
-
-      <div class="col-lg-7 col-12 px-5 my-3">
-        <h3 class="text-center mt-4 mb-3">Lista de Productos Registrados</h3>
-
-        <!-- <div class="input-group md-form form-sm form-1 pl-0 mb-2">
-          <div class="input-group-prepend">
-            <span class="input-group-text red lighten-3" style="background-color:rgba(199, 45, 40, 0.5) !important;"
-              id="basic-text1"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
-          </div>
-          <input id="search" type="search" (keyup)="buscarPelicula($event.target.value)" class="form-control my-0 py-1"
-            placeholder="Buscar" aria-label="Search">
-        </div> -->
-
-    <!--     <table class="table table-sm table-hover table-dark ">
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Actualizar Película</th>
-            <th scope="col">Eliminar Película </th>
-          </tr>
-          <tr *ngFor="let pelicula of listaPeliculas" class="">
-            <td> <span>{{pelicula.title}}</span> </td>
-            <td><button class="btn btn-sm btn-secondary" (click)="modPelicula(pelicula._id)">Modificar <i
-                  class="material-icons">update
-                </i></button></td>
-            <td> <button class="btn btn-sm btn-secondary" (click)="delPelicula(pelicula._id)">Eliminar <i
-                  class="material-icons">delete</i>
-              </button></td>
-
-          </tr>
-        </table> -->
-        <div class=container>
-          <div class="mat-elevation-z2">
-            <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z2 etabla" style="color: antiquewhite;" #tabla1>
-          
-              <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                <td mat-cell *matCellDef="let producto"> {{producto.id}} </td>
-              </ng-container>
-          
-              <ng-container matColumnDef="nombre">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
-                <td mat-cell *matCellDef="let producto"> {{producto.nombre}} </td>
-              </ng-container>
-          
-              <ng-container matColumnDef="categoria">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Categoría </th>
-                <td mat-cell *matCellDef="let producto"> {{producto.categoria}} </td>
-              </ng-container>
-              <ng-container matColumnDef="precio">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
-                <td mat-cell *matCellDef="let producto"> {{producto.precio}} </td>
-              </ng-container>
-        
-              <ng-container matColumnDef="inventario">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Inventario </th>
-                <td mat-cell *matCellDef="let producto"> {{producto.precio}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="eliminar">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Actualizar </th>
-                
-                <td mat-cell *matCellDef="let producto"> <button class="btn btn-sm btn-secondary" (click)="mostrarProducto(producto.id)"> <i
-                  class="material-icons">update
-                </i></button> </td>
-              </ng-container>
-
-              <ng-container matColumnDef="modificar">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Precio </th>
-                <td mat-cell *matCellDef="let producto"> {{producto.precio}} </td>
-              </ng-container>
-        
-              <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-              <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
-            </table>
-            <mat-paginator class="etabla" [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
-          </div>
-        </div> 
-
-      </div>
     </div>
+  </div>
 
-  
+
 </div>

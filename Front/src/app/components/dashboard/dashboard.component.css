@@ -1,0 +1,17 @@
+mat-icon{
+  color:#385ba1;
+
+}
+h5{
+    font-size: 1.5em;
+}
+
+.card{
+    background: rgb(255,255,255);
+background: linear-gradient(139deg, rgba(0, 16, 48, 0.514) 6%, rgba(255, 255, 255, 0.514) 100%);
+color: white;
+ 
+}
+.st{
+    color:#a0bcf3;
+}

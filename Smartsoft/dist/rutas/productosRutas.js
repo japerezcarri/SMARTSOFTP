@@ -8,5 +8,5 @@ router.get("/product/:id", productoControl_1.obtenerProducto);
 router.post("/createProduct", productoControl_1.crearProducto);
 router.put("/updateProduct/:id", productoControl_1.actualizarProducto);
 router.delete("/deleteProduct/:id", productoControl_1.eliminarProducto);
-router.get("/getImgProduct");
+router.post("/search", productoControl_1.busquedaProd);
 exports.default = router;

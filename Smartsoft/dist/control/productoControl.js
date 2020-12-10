@@ -36,14 +36,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.eliminarProducto = exports.actualizarProducto = exports.crearProducto = exports.obtenerProducto = exports.obtenerProductos = void 0;
+exports.busquedaProd = exports.eliminarProducto = exports.actualizarProducto = exports.crearProducto = exports.obtenerProducto = exports.obtenerProductos = void 0;
 var typeorm_1 = require("typeorm");
 var Producto_1 = require("../modelo/Producto");
 var obtenerProductos = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var productos;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, typeorm_1.getRepository(Producto_1.Producto).find()];
+            case 0: return [4 /*yield*/, typeorm_1.getRepository(Producto_1.Producto).find({
+                    order: {
+                        id: "ASC",
+                    }
+                })];
             case 1:
                 productos = _a.sent();
                 return [2 /*return*/, res.json(productos)];
@@ -107,3 +111,21 @@ var eliminarProducto = function (req, res) { return __awaiter(void 0, void 0, vo
     });
 }); };
 exports.eliminarProducto = eliminarProducto;
+var busquedaProd = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var parametros, busqueda, prodA;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                parametros = req.body;
+                busqueda = parametros.busqueda;
+                return [4 /*yield*/, typeorm_1.getRepository(Producto_1.Producto).find({
+                        where: [{ nombre: busqueda },
+                            { categoria: busqueda }]
+                    })];
+            case 1:
+                prodA = _a.sent();
+                return [2 /*return*/, res.json(prodA)];
+        }
+    });
+}); };
+exports.busquedaProd = busquedaProd;

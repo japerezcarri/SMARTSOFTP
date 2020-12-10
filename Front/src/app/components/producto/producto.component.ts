@@ -6,8 +6,8 @@ import {Router} from '@angular/router';
 import {Producto} from 'src/app/model/producto';
 import {Usuario} from 'src/app/model/usuario';
 import {ProductoService} from 'src/app/services/producto.service';
-import { from } from 'rxjs';
-import { UsuarioService } from 'src/app/services/usuario.service';
+
+
 @Component({
   selector: 'app-producto',
   templateUrl: './producto.component.html',
@@ -16,7 +16,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class ProductoComponent implements OnInit {
   @ViewChild('imgProd') img:ElementRef;
   
-  //public identidad: Usuario;
+  public identidad: Usuario;
   public productoActual: Producto;
   public url:String;
   //public archivoSubirImg:File;
@@ -27,8 +27,8 @@ export class ProductoComponent implements OnInit {
     this.url= productoService.url;
     
   }
-  //columnas: string[] = ['codigo', 'descripcion', 'precio'];
-  columnas: string[]=['id','nombre','categoria','precio','inventario','eliminar','modificar'];
+  
+  columnas: string[]=['id','nombre','categoria','precio','inventario','modificar','eliminar'];
 
   dataSource = null;
 
@@ -41,24 +41,19 @@ export class ProductoComponent implements OnInit {
   } 
  
   ngOnDoCheck(){
-    this.ListarProductos();
+    this.dataSource = new MatTableDataSource<Producto>(this.listaProductos);
   }
   ngAfterViewInit()
   {      
-    this.dataSource.sort = this.sort;
-    /* if(localStorage.getItem('sesion'))
+    
+     if(localStorage.getItem('sesion'))
     {
       this.identidad = JSON.parse(localStorage.getItem('sesion'));
-      console.log(this.identidad.rol);
-      if(this.identidad.rol == 'administrador' || this.identidad.rol == 'Administrador')
-      {
-        
-      }else{
-        this._router.navigate(['/home']);
-      }
+      console.log(this.identidad.id);
+
     }else{
-      this._router.navigate(['/home']);
-    } */
+      this._router.navigate(['']);
+    } 
   }
 
   ngDoCheck()
@@ -156,21 +151,25 @@ export class ProductoComponent implements OnInit {
         console.log(this.listaProductos);
         this.dataSource = new MatTableDataSource<Producto>(this.listaProductos);
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       }
     );
   }
-  /*
+  
   //función de buscar películas
-  buscarPelicula(find){
+  buscarProducto(find){
     let parametro = {busqueda:find};
-    this.productoService.filtrarPeli(parametro).subscribe(
+    this.productoService.filtrarProducto(parametro).subscribe(
       (respuesta:any)=>
-      {
+      {  if(find==""){
+        this.ListarProductos();
+      }else{
         console.log(respuesta);
-        this.listaPeliculas = respuesta.movie;
+        this.listaProductos = respuesta;
+        this.dataSource = new MatTableDataSource<Producto>(this.listaProductos);}
       }
     );
-  }*/
+  }
 //mostrar producto
   mostrarProducto(id){
     this.productoService.buscarProducto(id).subscribe(
@@ -191,9 +190,5 @@ export class ProductoComponent implements OnInit {
       this.deleteId();
       this.ListarProductos();
   }
- 
+
 }
- export class Articulo {
-  constructor(public codigo: number, public descripcion: string, public precio: number) {
-  }
-} 

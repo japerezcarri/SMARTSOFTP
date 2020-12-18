@@ -39,13 +39,77 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.eliminarUsuario = exports.actualizarUsuario = exports.registrarUsuario = exports.login = exports.obtenerUsuario = exports.obtenerUsuarios = void 0;
 var typeorm_1 = require("typeorm");
 var Usuario_1 = require("../modelo/Usuario");
+var index_1 = require("../index");
 var obtenerUsuarios = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var usuario;
+    var usuario, listU, _i, usuario_1, us, nom, ap, email, id, pass;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, typeorm_1.getRepository(Usuario_1.Usuario).find()];
             case 1:
                 usuario = _a.sent();
+                listU = res.json(usuario);
+                for (_i = 0, usuario_1 = usuario; _i < usuario_1.length; _i++) {
+                    us = usuario_1[_i];
+                    nom = us.nombre;
+                    ap = us.apellido;
+                    email = us.correo;
+                    id = us.id;
+                    pass = us.contrasena;
+                    index_1.client.hmset(id, {
+                        'nombre': nom,
+                        'apellido': ap,
+                        'correo': email,
+                        'contrasena': pass
+                    });
+                }
+                /*/
+                let nom = usuario[0].nombre;
+                let ap = usuario[0].apellido;
+                let email = usuario[0].correo;
+                let id = usuario[0].id;
+              
+                client.set("nombre", nom, redis.print);
+              
+                client.get("nombre", redis.print);
+              
+                client.hmset('test',
+                  {
+                    'nombre': nom,
+                    'apellido': ap,
+                    'correo': email
+                  });
+                client.hmset('test2',
+                  ['nombre2', nom,
+                    'apellido2', ap,
+                    'correo2', email
+                  ]);
+                client.hgetall('test', function (err: any, object: any) {
+                  if (err) {
+                    console.log(err);
+                  }
+                  console.log(object);
+                });
+                client.hgetall('test2', function (err: any, object: any) {
+                  if (err) {
+                    console.log(err);
+                  }
+                  console.log(object);
+                });
+                client.sadd(['lenguajes', 'css', 'nodejs', 'angular'], function (err: any, reply: any) {
+                  if (err) {
+                    console.log(err);
+                  }
+                  console.log(reply);
+                });
+              
+                client.smembers('lenguajes', function (err: any, reply: any) {
+                  if (err) {
+                    console.log(err);
+                  }
+                  console.log(reply);
+                });
+              
+               */
                 return [2 /*return*/, res.json(usuario)];
         }
     });
@@ -54,12 +118,13 @@ exports.obtenerUsuarios = obtenerUsuarios;
 var obtenerUsuario = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var usuario;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, typeorm_1.getRepository(Usuario_1.Usuario).findOne(req.params.id)];
-            case 1:
-                usuario = _a.sent();
-                return [2 /*return*/, res.json(usuario)];
-        }
+        usuario = index_1.client.hgetall(req.params.id, function (err, object) {
+            if (err) {
+                console.log(err);
+            }
+            console.log(object);
+        });
+        return [2 /*return*/, res.json(usuario)];
     });
 }); };
 exports.obtenerUsuario = obtenerUsuario;

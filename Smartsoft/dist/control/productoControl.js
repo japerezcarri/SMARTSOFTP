@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.busquedaProd = exports.eliminarProducto = exports.actualizarProducto = exports.crearProducto = exports.obtenerProducto = exports.obtenerProductos = void 0;
 var typeorm_1 = require("typeorm");
 var Producto_1 = require("../modelo/Producto");
+var redis = require('redis');
 var obtenerProductos = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var productos;
     return __generator(this, function (_a) {

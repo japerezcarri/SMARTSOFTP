@@ -1,6 +1,9 @@
 import { Request, Response } from "express";
 import { getRepository } from "typeorm";
 import { Producto } from "../modelo/Producto";
+const redis =require('redis');
+
+
 
 export const obtenerProductos = async (
   req: Request, res: Response
@@ -12,6 +15,8 @@ export const obtenerProductos = async (
   });
   return res.json(productos);
 };
+
+
 
 export const obtenerProducto = async (
   req: Request, res: Response

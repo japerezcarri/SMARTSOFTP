@@ -1,18 +1,105 @@
 import { Request, Response } from "express";
+import { format } from "morgan";
 import { getRepository } from "typeorm";
 import { Usuario } from "../modelo/Usuario";
+import { client, redis } from "../index";
+
 
 export const obtenerUsuarios = async (
   req: Request, res: Response
 ): Promise<Response> => {
   const usuario = await getRepository(Usuario).find();
-  return res.json(usuario);
+  const listU = res.json(usuario);
+
+  for (let us of usuario) {
+    let nom = us.nombre;
+    let ap = us.apellido;
+    let email = us.correo;
+    let id = us.id;
+    let pass=us.contrasena;
+    
+   
+    client.hmset(id,
+      {
+        'nombre': nom,
+        'apellido':ap ,
+        'correo': email,
+        'contrasena': pass
+      });
+
+      
+   
+  }
+ 
+
+  /*/
+  let nom = usuario[0].nombre;
+  let ap = usuario[0].apellido;
+  let email = usuario[0].correo;
+  let id = usuario[0].id;
+
+  client.set("nombre", nom, redis.print);
+
+  client.get("nombre", redis.print);
+
+  client.hmset('test',
+    {
+      'nombre': nom,
+      'apellido': ap,
+      'correo': email
+    });
+  client.hmset('test2',
+    ['nombre2', nom,
+      'apellido2', ap,
+      'correo2', email
+    ]);
+  client.hgetall('test', function (err: any, object: any) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(object);
+  });
+  client.hgetall('test2', function (err: any, object: any) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(object);
+  });
+  client.sadd(['lenguajes', 'css', 'nodejs', 'angular'], function (err: any, reply: any) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(reply); 
+  });
+
+  client.smembers('lenguajes', function (err: any, reply: any) {
+    if (err) {
+      console.log(err);
+    }
+    console.log(reply);
+  });
+
+ */
+  return res.json(usuario)
+
 };
+
+
+
+
 
 export const obtenerUsuario = async (
   req: Request, res: Response
 ): Promise<Response> => {
-  const usuario = await getRepository(Usuario).findOne(req.params.id);
+  /* const usuario = await getRepository(Usuario).findOne(req.params.id);
+  console.log(usuario); */
+  const usuario=client.hgetall(req.params.id, function (err: any, object: any) {
+    if (err) {
+      console.log(err);
+    }
+      console.log(object);
+  });
+  
   return res.json(usuario);
 };
 
@@ -33,6 +120,7 @@ export const login = async (
   }
 
 };
+
 
 export const registrarUsuario = async (
   req: Request, res: Response
